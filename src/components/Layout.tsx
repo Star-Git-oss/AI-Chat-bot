@@ -4,8 +4,6 @@ import LeftSidebar from "./sidebar/left"
 import RightSidebar from "./sidebar/right"
 import SearchBar from "./searchbar";
 import Router, { useRouter } from "next/router";
-import { Provider } from "react-redux";
-import { NextApiHandler } from "next";
 
 
 interface LayoutProps {
