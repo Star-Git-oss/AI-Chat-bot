@@ -22,6 +22,7 @@ const SearchBar = ({ itemIndex, onSearch }) => {
                 const messages = targetMessage.message;
                 const thoughts = targetMessage.thoughts;
                 messages.push({ sender: "user", message: message });
+                thoughts.push(message);
                 localStorage.setItem('chatHistory', JSON.stringify(storedChatHistory));
             } catch (err) {
                 console.log("catch");

@@ -12,6 +12,7 @@ const Conversation = ({ selectedIndex, message }) => {
             let storedChatHistory = JSON.parse(storedData);
             const targetMessage = storedChatHistory[selectedIndex];
             messages = targetMessage.message;
+            const thoughts = targetMessage.thoughts;
         } catch (err) {
         } finally {
         }
