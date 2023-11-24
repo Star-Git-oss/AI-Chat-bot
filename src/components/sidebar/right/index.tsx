@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import Item from "./Item"
 
 const Right = ({ itemIndex, soulThoughts }) => {
@@ -10,10 +11,15 @@ const Right = ({ itemIndex, soulThoughts }) => {
     let storedChatHistory = JSON.parse(storedData);
     const targetMessage = storedChatHistory[itemIndex];
     thoughts = targetMessage.thoughts;
-    console.log("thoughts=>", thoughts);
   } catch (err) {
     thoughts = [];
   }
+
+  useEffect(() =>
+    {
+
+    }, [soulThoughts]
+  )
 
   const bgColors = ["bg-[#E2F1EB]", "bg-[#DAE8F3]", "bg-[#FEE7E3]"];
   let index = 0;
@@ -26,7 +32,7 @@ const Right = ({ itemIndex, soulThoughts }) => {
       <div className="h-[calc(100vh-6rem)] overflow-y-scroll">
         <ul>
           {
-            soulThoughts.map((item, index) => <Item key={index} bg={bgColors[(++index) % 3]} title={item} />)
+            thoughts.map((item, index) => <Item key={index} bg={bgColors[(++index) % 3]} title={item} />)
           }
         </ul>
       </div>

@@ -51,10 +51,7 @@ const NewChat = () => {
 
   const handleMessage = async (data) => {
     setMessage(preArray => [...preArray, data]);
-    console.log("Item >>>", message);
   }
-
-  // console.log(selectedIndex);
 
   return (
     <Layout index={selectedIndex} thoughts={soulThoughts} typeMessage={handleMessage}>

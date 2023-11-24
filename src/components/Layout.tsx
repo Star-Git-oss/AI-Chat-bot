@@ -67,10 +67,16 @@ const Layout = ({ index, children, thoughts, typeMessage }: LayoutProps) => {
 
       const updateData = {
         title: data.substring(0, 10) + '...',
-        message: [{
-          sender: 'user',
-          message: data,
-        }],
+        message: [
+          {
+            sender: 'user',
+            message: data,
+          }
+        ],
+        thoughts: [
+          "I think he is asking me what I can do for him.",
+          "So I will do the best as possible."
+        ],
         isTitle: true,
       };
       updateChatHistory(updateData);
@@ -84,7 +90,7 @@ const Layout = ({ index, children, thoughts, typeMessage }: LayoutProps) => {
     }
 
     else {
-      typeMessage({sender:"user", message: data});
+      typeMessage({ sender: "user", message: data });
     }
 
     //Send user message to backend api
@@ -138,19 +144,19 @@ const Layout = ({ index, children, thoughts, typeMessage }: LayoutProps) => {
 
   }
   return (
-      <div className="bg-white h-screen overflow-y-hidden">
-        <Header />
-        <div className="h-[calc(100vh-4rem)] grid grid-cols-12 mx-auto px-0 sm:px-0 md:px-5">
-          <LeftSidebar selection={itemIndex} setSelection={setItemIndex} />
-          <div className="h-[calc(100vh-4rem)] col-span-12 sm:col-span-12 md:col-span-7 bg-[#FAFAFA] rounded-xl ml-0 md:ml-2">
-            <div className="flex flex-col">
-              <div className="h-[calc(100vh-12rem)] overflow-y-scroll">{children}</div>
-              <SearchBar itemIndex={itemIndex} onSearch={handleMessage} />
-            </div>
+    <div className="bg-white h-screen overflow-y-hidden">
+      <Header />
+      <div className="h-[calc(100vh-4rem)] grid grid-cols-12 mx-auto px-0 sm:px-0 md:px-5">
+        <LeftSidebar selection={itemIndex} setSelection={setItemIndex} />
+        <div className="h-[calc(100vh-4rem)] col-span-12 sm:col-span-12 md:col-span-7 bg-[#FAFAFA] rounded-xl ml-0 md:ml-2">
+          <div className="flex flex-col">
+            <div className="h-[calc(100vh-12rem)] overflow-y-scroll">{children}</div>
+            <SearchBar itemIndex={itemIndex} onSearch={handleMessage} />
           </div>
-          <RightSidebar itemIndex={itemIndex} soulThoughts={soulThoughts} />
         </div>
+        <RightSidebar itemIndex={itemIndex} soulThoughts={soulThoughts} />
       </div>
+    </div>
   );
 };
 

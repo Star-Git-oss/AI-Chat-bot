@@ -12,7 +12,6 @@ const Conversation = ({ selectedIndex, message }) => {
             let storedChatHistory = JSON.parse(storedData);
             const targetMessage = storedChatHistory[selectedIndex];
             messages = targetMessage.message;
-            const thoughts = targetMessage.thoughts;
         } catch (err) {
         } finally {
         }
@@ -22,7 +21,7 @@ const Conversation = ({ selectedIndex, message }) => {
     const messagesEndRef = useRef(null);
     useEffect(() => {
         // setMessages(message);
-        console.log("conversation-message ======> ", message);
+        // console.log("conversation-message ======> ", message);
     }, [message]);
 
     return (
