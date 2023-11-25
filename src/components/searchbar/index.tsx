@@ -21,10 +21,14 @@ const SearchBar = ({ itemIndex, onSearch }) => {
             try {
                 const messages = targetMessage.message;
                 const thoughts = targetMessage.thoughts;
-                messages.push({ sender: "user", message: message });
+                messages.push(
+                    { sender: "user", message: message },
+                    { sender: "stefan", message: message }
+                );
                 thoughts.push(
                     "I think he is asking me what I can do for him.",
-                    "So I will do the best as possible.");
+                    "So I will do the best as possible."
+                );
                 localStorage.setItem('chatHistory', JSON.stringify(storedChatHistory));
             } catch (err) {
                 console.log("catch");
